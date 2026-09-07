@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
+  <title>ROG FIRE · Toko Laptop</title>
+  <!-- Font & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0b0b0b;
+      color: #f0f0f0;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- STICKY NAVBAR ----- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 11, 11, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 70, 70, 0.15);
+      padding: 12px 0;
+      transition: 0.2s;
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      font-size: 28px;
+      color: #ff2a2a;
+      filter: drop-shadow(0 0 6px #ff3b3b55);
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #fff 0%, #ffb3b3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      border-bottom-color: #ff3b3b;
+      text-shadow: 0 0 8px #ff3b3b55;
+    }
+
+    .search-wrap {
+      display: flex;
+      align-items: center;
+      background: #1c1c1c;
+      border-radius: 40px;
+      padding: 2px 6px 2px 16px;
+      border: 1px solid #2c2c2c;
+    }
+
+    .search-wrap input {
+      background: transparent;
+      border: none;
+      padding: 8px 4px;
+      color: #eee;
+      font-size: 0.85rem;
+      width: 140px;
+      outline: none;
+    }
+
+    .search-wrap button {
+      background: #ff2a2a;
+      border: none;
+      color: white;
+      border-radius: 30px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 0 10px #ff2a2a55;
+    }
+
+    .search-wrap button:hover {
+      background: #ff4a4a;
+      box-shadow: 0 0 16px #ff2a2aaa;
+    }
+
+    /* ----- HERO ----- */
+    .hero {
+      padding: 50px 0 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      border-bottom: 1px solid #1e1e1e;
+    }
+
+    .hero-content {
+      flex: 1 1 380px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #fff 0%, #ff7a7a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-content .slogan {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ff3b3b;
+      margin: 10px 0 6px;
+      text-shadow: 0 0 20px #ff3b3b33;
+    }
+
+    .hero-content p {
+      color: #b0b0b0;
+      max-width: 500px;
+      font-size: 1rem;
+      margin: 12px 0 20px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn-primary, .btn-outline {
+      padding: 12px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #ff2a2a;
+      color: #fff;
+      box-shadow: 0 0 20px #ff2a2a66;
+    }
+
+    .btn-primary:hover {
+      background: #ff4a4a;
+      box-shadow: 0 0 32px #ff2a2aaa;
+      transform: scale(1.02);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #ff2a2a;
+      color: #ff2a2a;
+    }
+
+    .btn-outline:hover {
+      background: #ff2a2a1a;
+      box-shadow: 0 0 20px #ff2a2a33;
+    }
+
+    .hero-image {
+      flex: 1 1 380px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px -10px #000000aa, 0 0 30px #ff2a2a22;
+      transition: 0.3s;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.01);
+      box-shadow: 0 20px 60px -5px #ff2a2a33;
+    }
+
+    /* ----- SECTION TITLE ----- */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 40px 0 20px;
+      letter-spacing: -0.5px;
+      border-left: 6px solid #ff2a2a;
+      padding-left: 18px;
+      text-shadow: 0 0 20px #ff2a2a22;
+    }
+
+    /* ----- CARDS PRODUK ----- */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 28px;
+      margin: 20px 0 40px;
+    }
+
+    .product-card {
+      background: #141414;
+      border-radius: 24px;
+      padding: 18px 16px 20px;
+      border: 1px solid #252525;
+      transition: 0.25s;
+      box-shadow: 0 8px 20px #00000044;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: #ff2a2a55;
+      box-shadow: 0 16px 40px #ff2a2a1a;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 16px;
+      background: #1f1f1f;
+    }
+
+    .product-card h4 {
+      margin: 12px 0 4px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .product-card .spec {
+      font-size: 0.8rem;
+      color: #9a9a9a;
+      margin-bottom: 6px;
+    }
+
+    .product-card .price {
+      color: #ff5e5e;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .product-card .status {
+      display: inline-block;
+      background: #1e2a1e;
+      color: #7ddf7d;
+      font-size: 0.7rem;
+      padding: 2px 12px;
+      border-radius: 30px;
+      margin: 6px 0 10px;
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .btn-detail, .btn-wa {
+      flex: 1;
+      padding: 8px 0;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-detail {
+      background: #2a2a2a;
+      color: #ddd;
+    }
+
+    .btn-detail:hover {
+      background: #3a3a3a;
+      color: #fff;
+    }
+
+    .btn-wa {
+      background: #25d366;
+      color: #0b0b0b;
+    }
+
+    .btn-wa:hover {
+      background: #2ee07a;
+      box-shadow: 0 0 16px #25d36666;
+    }
+
+    /* ----- KEUNGGULAN ----- */
+    .keunggulan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin: 30px 0 50px;
+    }
+
+    .keunggulan-item {
+      background: #141414;
+      padding: 22px 12px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid #252525;
+      transition: 0.2s;
+    }
+
+    .keunggulan-item i {
+      font-size: 2rem;
+      color: #ff2a2a;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 0 8px #ff2a2a44);
+    }
+
+    .keunggulan-item h5 {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .keunggulan-item:hover {
+      border-color: #ff2a2a77;
+      background: #1a1a1a;
+    }
+
+    /* ----- TENTANG KAMI (SINGKAT) ----- */
+    .about-section {
+      background: #111;
+      border-radius: 32px;
+      padding: 40px 32px;
+      margin: 30px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      border: 1px solid #222;
+    }
+
+    .about-section .about-text {
+      flex: 2;
+    }
+
+    .about-section .about-text h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .about-section .about-text p {
+      color: #b8b8b8;
+      max-width: 600px;
+      margin: 12px 0 8px;
+    }
+
+    .about-section .about-img {
+      flex: 1;
+      min-width: 160px;
+      text-align: center;
+    }
+
+    .about-section .about-img i {
+      font-size: 5rem;
+      color: #ff2a2a55;
+    }
+
+    /* ----- CV / PROFIL USAHA ----- */
+    .cv-card {
+      background: #141414;
+      border-radius: 28px;
+      padding: 28px 32px;
+      border: 1px solid #262626;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin: 20px 0 40px;
+      align-items: center;
+    }
+
+    .cv-card .cv-info {
+      flex: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 28px;
+    }
+
+    .cv-card .cv-info p {
+      border-bottom: 1px solid #242424;
+      padding: 6px 0;
+    }
+
+    .cv-card .cv-info strong {
+      color: #ff5e5e;
+    }
+
+    .cv-card .cv-download {
+      flex: 1;
+      text-align: center;
+    }
+
+    /* ----- GALERI ----- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .gallery-grid .gal-item {
+      background: #1a1a1a;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #2a2a2a;
+      transition: 0.2s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-grid .gal-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+
+    .gallery-grid .gal-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-grid .gal-item i {
+      font-size: 2.8rem;
+      color: #ff2a2a44;
+    }
+
+    /* Lightbox sederhana */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #000000dd;
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 20px;
+      box-shadow: 0 0 60px #ff2a2a33;
+    }
+
+    .lightbox .close-lb {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 2.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ----- MEDIA SOSIAL ----- */
+    .social-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 20px 0 30px;
+    }
+
+    .social-btn {
+      background: #1c1c1c;
+      border-radius: 60px;
+      padding: 14px 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 600;
+      border: 1px solid #2c2c2c;
+      transition: 0.2s;
+    }
+
+    .social-btn i {
+      font-size: 1.6rem;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-4px);
+      border-color: #ff2a2a77;
+      background: #222;
+      box-shadow: 0 0 30px #ff2a2a22;
+    }
+
+    .social-btn.wa { color: #25d366; }
+    .social-btn.ig { color: #e1306c; }
+    .social-btn.tt { color: #00f2ea; }
+    .social-btn.fb { color: #1877f2; }
+    .social-btn.yt { color: #ff0000; }
+
+    /* ----- KONTAK & FORM ----- */
+    .contact-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 20px 0 40px;
+    }
+
+    .contact-info {
+      flex: 1 1 280px;
+      background: #141414;
+      border-radius: 28px;
+      padding: 28px;
+      border: 1px solid #252525;
+    }
+
+    .contact-info p { margin: 12px 0; }
+
+    .contact-form {
+      flex: 2 1 340px;
+      background: #141414;
+      border-radius: 28px;
+      padding: 28px;
+      border: 1px solid #252525;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      margin: 8px 0 14px;
+      background: #1f1f1f;
+      border: 1px solid #2e2e2e;
+      border-radius: 40px;
+      color: #eee;
+      font-family: inherit;
+    }
+
+    .contact-form textarea {
+      border-radius: 20px;
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: #ff2a2a;
+      border: none;
+      color: white;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 0 20px #ff2a2a55;
+    }
+
+    .contact-form button:hover {
+      background: #ff4a4a;
+      box-shadow: 0 0 32px #ff2a2aaa;
+    }
+
+    .wa-big-btn {
+      display: inline-block;
+      background: #25d366;
+      color: #0b0b0b;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 60px;
+      margin: 20px 0 10px;
+      box-shadow: 0 0 30px #25d36644;
+      transition: 0.2s;
+    }
+
+    .wa-big-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 50px #25d36677;
+    }
+
+    /* ----- TESTIMONI ----- */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin: 20px 0 40px;
+    }
+
+    .testi-card {
+      background: #141414;
+      border-radius: 24px;
+      padding: 24px 20px;
+      border: 1px solid #252525;
+      transition: 0.2s;
+    }
+
+    .testi-card:hover {
+      border-color: #ff2a2a55;
+    }
+
+    .testi-card .stars {
+      color: #ffbb00;
+      letter-spacing: 3px;
+    }
+
+    /* ----- FOOTER ----- */
+    footer {
+      background: #0c0c0c;
+      border-top: 1px solid #1e1e1e;
+      padding: 40px 0 20px;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-grid h5 {
+      color: #ff2a2a;
+      margin-bottom: 12px;
+    }
+
+    .footer-grid a {
+      display: block;
+      color: #aaa;
+      margin: 6px 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid a:hover { color: #fff; }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 30px;
+      color: #666;
+      font-size: 0.8rem;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .navbar .container { flex-direction: column; gap: 10px; }
+      .nav-links { justify-content: center; }
+      .search-wrap { width: 100%; }
+      .search-wrap input { width: 100%; }
+      .hero-content h1 { font-size: 2.4rem; }
+      .cv-card .cv-info { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="logo-area">
+        <span class="logo-icon"><i class="fas fa-fire"></i></span>
+        <span class="logo-text">ROG FIRE</span>
+      </div>
+      <div class="nav-links">
+        <a href="#home">Beranda</a>
+        <a href="#about">Tentang</a>
+        <a href="#cv">CV</a>
+        <a href="#hasil">Hasil Karya</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#sosial">Media</a>
+        <a href="#kontak">Kontak</a>
+        <a href="#testi">Testimoni</a>
+      </div>
+      <div class="search-wrap">
+        <input type="text" placeholder="Cari laptop..." />
+        <button><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- BERANDA -->
+    <section id="home">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Toko Laptop ROG FIRE</h1>
+          <div class="slogan">Laptop Berkualitas, Performa Maksimal.</div>
+          <p>Temukan berbagai pilihan laptop gaming, laptop kerja, laptop pelajar, dan laptop premium dengan kualitas terbaik dan harga yang kompetitif.</p>
+          <div class="btn-group">
+            <a href="#produk" class="btn-primary"><i class="fas fa-laptop"></i> Lihat Produk</a>
+            <a href="#kontak" class="btn-outline"><i class="fas fa-headset"></i> Hubungi Kami</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600&auto=format&fit=crop" alt="laptop gaming" />
+        </div>
+      </div>
+
+      <!-- PRODUK UNGGULAN -->
+      <h2 class="section-title" id="produk">🔥 Produk Unggulan</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?w=400&auto=format&fit=crop" alt="laptop" />
+          <h4>ROG Strix G16</h4>
+          <div class="spec">Intel i9 · RTX 4060 · 16GB · 1TB SSD</div>
+          <div class="price">Rp 22.500.000</div>
+          <span class="status">✅ Tersedia</span>
+          <div class="card-actions">
+            <a href="#" class="btn-detail">Lihat Detail</a>
+            <a href="#" class="btn-wa"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&auto=format&fit=crop" alt="laptop" />
+          <h4>Legion 5 Pro</h4>
+          <div class="spec">AMD Ryzen 7 · RTX 3070 · 32GB · 1TB</div>
+          <div class="price">Rp 19.800.000</div>
+          <span class="status">✅ Tersedia</span>
+          <div class="card-actions">
+            <a href="#" class="btn-detail">Lihat Detail</a>
+            <a href="#" class="btn-wa"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&auto=format&fit=crop" alt="laptop" />
+          <h4>ZenBook 14 OLED</h4>
+          <div class="spec">Intel i7 · 16GB · 512GB · OLED 4K</div>
+          <div class="price">Rp 14.200.000</div>
+          <span class="status">🟡 Pre-order</span>
+          <div class="card-actions">
+            <a href="#" class="btn-detail">Lihat Detail</a>
+            <a href="#" class="btn-wa"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&auto=format&fit=crop" alt="laptop" />
+          <h4>Predator Helios 300</h4>
+          <div class="spec">Intel i7 · RTX 3060 · 16GB · 512GB</div>
+          <div class="price">Rp 16.900.000</div>
+          <span class="status">✅ Tersedia</span>
+          <div class="card-actions">
+            <a href="#" class="btn-detail">Lihat Detail</a>
+            <a href="#" class="btn-wa"><i class="fab fa-whatsapp"></i> WA</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEUNGGULAN -->
+      <h2 class="section-title">⚡ Keunggulan Kami</h2>
+      <div class="keunggulan-grid">
+        <div class="keunggulan-item"><i class="fas fa-check-circle"></i><h5>Produk Berkualitas</h5></div>
+        <div class="keunggulan-item"><i class="fas fa-tag"></i><h5>Harga Kompetitif</h5></div>
+        <div class="keunggulan-item"><i class="fas fa-smile"></i><h5>Pelayanan Ramah</h5></div>
+        <div class="keunggulan-item"><i class="fas fa-shield-alt"></i><h5>Produk Terjamin</h5></div>
+        <div class="keunggulan-item"><i class="fas fa-headset"></i><h5>Garansi & After-sales</h5></div>
+      </div>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section id="about">
+      <div class="about-section">
+        <div class="about-text">
+          <h2>⚙️ Tentang Kami</h2>
+          <p><strong>Toko Laptop ROG FIRE</strong> merupakan usaha yang bergerak dalam bidang jual beli laptop. Kami menyediakan berbagai pilihan laptop untuk kebutuhan gaming, sekolah, pekerjaan, bisnis, desain, editing, dan kebutuhan sehari-hari. Kami berkomitmen memberikan produk berkualitas dengan harga yang kompetitif serta pelayanan yang terbaik bagi pelanggan.</p>
+          <p>Sejak 2022, ROG FIRE telah dipercaya oleh ratusan pelanggan untuk memenuhi kebutuhan laptop mereka.</p>
+        </div>
+        <div class="about-img">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV / PROFIL USAHA -->
+    <section id="cv">
+      <h2 class="section-title">📄 Profil Usaha</h2>
+      <div class="cv-card">
+        <div class="cv-info">
+          <p><strong>Nama Usaha</strong> Toko Laptop ROG FIRE</p>
+          <p><strong>Bidang</strong> Jual Beli Laptop</p>
+          <p><strong>Pemilik</strong> [Nama Pemilik]</p>
+          <p><strong>Tahun Berdiri</strong> 2022</p>
+          <p><strong>Alamat</strong> Jl. Contoh No. 123, Kota</p>
+          <p><strong>Telepon</strong> 0812-3456-7890</p>
+          <p><strong>WhatsApp</strong> 0812-3456-7890</p>
+          <p><strong>Email</strong> rogfire@laptop.com</p>
+          <p><strong>Media Sosial</strong> @rogfirestore</p>
+        </div>
+        <div class="cv-download">
+          <a href="#" class="btn-primary"><i class="fas fa-download"></i> Download CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HASIL KARYA -->
+    <section id="hasil">
+      <h2 class="section-title">🛠️ Hasil Karya</h2>
+      <div class="product-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px,1fr));">
+        <div class="product-card"><img src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?w=300&auto=format&fit=crop" alt="upgrade" /><h5>Upgrade RAM</h5><p style="font-size:0.8rem;color:#aaa;">DDR4 16GB → 32GB</p></div>
+        <div class="product-card"><img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=300&auto=format&fit=crop" alt="ssd" /><h5>Upgrade SSD</h5><p style="font-size:0.8rem;color:#aaa;">NVMe 1TB Gen4</p></div>
+        <div class="product-card"><img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=300&auto=format&fit=crop" alt="cleaning" /><h5>Cleaning Laptop</h5><p style="font-size:0.8rem;color:#aaa;">Bersihkan debu & pasta</p></div>
+        <div class="product-card"><img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=300&auto=format&fit=crop" alt="setup" /><h5>Custom Setup</h5><p style="font-size:0.8rem;color:#aaa;">Setup gaming RGB</p></div>
+      </div>
+    </section>
+
+    <!-- GALERI -->
+    <section id="galeri">
+      <h2 class="section-title">📸 Galeri Foto & Video</h2>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gal-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=300&auto=format&fit=crop" alt="laptop" /></div>
+        <div class="gal-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?w=300&auto=format&fit=crop" alt="laptop" /></div>
+        <div class="gal-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=300&auto=format&fit=crop" alt="laptop" /></div>
+        <div class="gal-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=300&auto=format&fit=crop" alt="laptop" /></div>
+        <div class="gal-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=300&auto=format&fit=crop" alt="laptop" /></div>
+        <div class="gal-item"><i class="fas fa-play-circle"></i></div>
+      </div>
+      <!-- Lightbox -->
+      <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="close-lb">&times;</span>
+        <img id="lightboxImg" src="" alt="gambar" />
+      </div>
+    </section>
+
+    <!-- MEDIA SOSIAL -->
+    <section id="sosial">
+      <h2 class="section-title">📱 Media Sosial</h2>
+      <p style="color:#aaa;margin-bottom:16px;">Ikuti Toko Laptop ROG FIRE di media sosial untuk informasi produk terbaru, promo, dan konten menarik seputar laptop.</p>
+      <div class="social-grid">
+        <a href="#" class="social-btn ig"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#" class="social-btn tt"><i class="fab fa-tiktok"></i> TikTok</a>
+        <a href="#" class="social-btn fb"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#" class="social-btn yt"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="#" class="social-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak">
+      <h2 class="section-title">📞 Kontak</h2>
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <p><i class="fas fa-map-pin" style="color:#ff2a2a;"></i> Jl. Contoh No. 123, Kota</p>
+          <p><i class="fas fa-phone" style="color:#ff2a2a;"></i> 0812-3456-7890</p>
+          <p><i class="fab fa-whatsapp" style
